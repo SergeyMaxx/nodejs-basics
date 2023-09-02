@@ -39,7 +39,7 @@ async function removeNote(id) {
   console.log(chalk.bgRed(`Note with id: ${id} has been deleted`))
 }
 
-async function updateNote(id, newContent) {
+async function edit(id, newContent) {
   const notes = await getNotes()
   notes.find(n => n.id === id).title = newContent
   await saveNotes(notes)
@@ -50,5 +50,5 @@ module.exports = {
   addNote,
   getNotes,
   removeNote,
-  updateNote
+  edit
 }

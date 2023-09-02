@@ -30,7 +30,7 @@ document.addEventListener('click', async ({target}) => {
     title.contentEditable = 'false'
     const newTitle = title.innerText
 
-    await update(target.dataset.id, newTitle).then(() => title.innerText = newTitle)
+    await edit(target.dataset.id, newTitle).then(() => title.innerText = newTitle)
   }
 
   if (target.dataset.type === 'cancel') {
@@ -43,7 +43,7 @@ document.addEventListener('click', async ({target}) => {
   }
 })
 
-async function update(id, newTitle) {
+async function edit(id, newTitle) {
   await fetch(`/${id}`, {
     method: 'PUT',
     headers: {'Content-Type': 'application/json'},
