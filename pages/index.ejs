@@ -27,10 +27,18 @@
       <ul class="list-group">
         <% for (let i = 0; i < notes.length; i++) { %>
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div><%= notes[i].title %></div>
-            <div>
-              <button class="btn btn-primary mx-2" data-type="update" data-id="<%= notes[i].id %>">
+            <div data-type="title" contenteditable="false">
+              <%= notes[i].title %>
+            </div>
+            <div class="d-flex">
+              <button class="btn btn-primary mx-2" data-type="edit" data-id="<%= notes[i].id %>">
                 Редактировать
+              </button>
+              <button class="btn btn-success save-btn edit-btn mx-2" data-type="save" data-id="<%= notes[i].id %>" style="display:none;">
+                Сохранить
+              </button>
+              <button class="btn btn-secondary cancel-btn" data-type="cancel" data-id="<%= notes[i].id %>" style="display:none;">
+                Отменить
               </button>
               <button class="btn btn-danger" data-type="remove" data-id="<%= notes[i].id %>">
                 &times;
